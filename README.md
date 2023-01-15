@@ -1,7 +1,4 @@
 # MARSFarm-web_VX
-Flask, Blueprint testing of a MARSFarm website
-Future version of the MARSFarm server software
-This project explores creating a web server using Python, Flask, Blueprints and MongoDB.
 Purpose
 The goal is to duplicate the current functionality, and add some enhancements (including a new data format).
 There are two problems with the current design:
