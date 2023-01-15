@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{data.title}}</h1>
+    <p>School: {{data.farm}}</br>
+       Box: {{data.field}}</br>
+       Start Date: {{data.start_date_str}}</br>
+       End Date: {{data.end_date_str}}</br>
+       Image:{{data.image_type}}</br>
+    <img id="picture" src="data:image/gif;base64,{{data.image}}" alt="{{data.alt}}"></br>
+    <img id="picture" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA
+    AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+        9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="red_dot test">
+
+{% endblock %}

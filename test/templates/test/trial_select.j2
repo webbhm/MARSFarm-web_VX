@@ -1,0 +1,13 @@
+<select name="trial" id="tial">
+{% for farm in data.access.farms %}
+	{% for experiment in farm.experiments %}
+		{% for trial in experiment.trials %}
+			{% if trial.name == data.access.defaults.trial %}
+				<option value={{trial.id}} selected>{{trial.name}}</option>
+			{% else  %}
+				<option value={{trial.id}}>{{trial.name}}</option>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}
+</select><br>

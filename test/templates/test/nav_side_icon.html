@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+body {font-family: "Lato", sans-serif;}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+  float: right;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar {
+  height: 80%;
+  width: 160px;
+  position: float;
+  z-index: 1;
+  top: 100;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 50%;
+}
+
+</style>
+</head>
+<body>
+<div class="topnav">
+  <a href="#logout"><i class="material-icons">logout</i></a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#trial" class="split"><i class="material-icons">menu</i></a>
+  <a href="#trial" class="split"><img source="./MarsFarmLogo.png" alt='MarsFarm logo' style="width:50px;height:50px;">menu</i></a>
+</div>
+
+<div class="sidebar column.left">
+  <a href="#home"><i class="material-icons">home</i>Home</a>
+  <a href="#services"><i class="material-icons">search</i> Search</a>
+  <a href="#services"><i class="material-icons">menu</i> Trials</a>
+  <a href="#services"><i class="material-icons">build</i> Services</a>
+  <a href="#services"><i class="material-icons">eco</i> Plants</a>
+  <a href="#services"><i class="material-icons">sunny</i> Environ</a>
+  <a href="#services"><i class="material-icons">water_drop</i> Water</a>
+  <a href="#services"><i class="material-icons">photo_library</i> Images</a>
+  <a href="#services"><i class="material-icons">assignment</i> Enter Data</a>
+  <a href="#services"><i class="material-icons">insert_chart</i> Charts</a>
+  <a href="#services"><i class="material-icons">rocket_launch</i> Advanced</a>
+  <a href="#services"><i class="material-icons">construction</i> Try It</a>
+</div>
+
+<div class="main">
+  <h2>Combination Top and Sidebar</h2>
+  <p>This side navigation ffloats 80%</p>
+<img source="MarsFarmLogo.png" alt='MarsFarm logo' style="width:50px;height:50px;">
+</div>
+     
+</body>
+</html> 

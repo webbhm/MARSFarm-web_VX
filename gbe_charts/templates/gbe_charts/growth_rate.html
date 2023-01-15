@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>Select Attribute to display</p>
+    <form>
+      <select name="attribute" action="/growth_rate" method="post">
+        <option value="height">Height</option>
+        <option value="width">Width</option>
+        <option value="depth">Depth</option>
+        <option value="edible_mass">Edible Mass</option>
+        <option value="inedible_mass">Inedible Mass</option>        
+      </select>
+      <input value="Submit" type="submit"> </form>
+    <h1>2020 Data (all schools)</h1>
+    <div id="chart" class="chart" ”=""></div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+  var graphs = {{graphJSON | safe}};
+  Plotly.plot('chart',graphs,{});
+</script>
+{% endblock %}

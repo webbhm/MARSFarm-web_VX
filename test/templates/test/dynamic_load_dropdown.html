@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dynamic Drop Down:</h1>
+	<p>Select a trial:</p>
+	<form method="post">
+<select name="trial" id="tial">
+{% for farm in data.access.farms %}
+	{% for experiment in farm.experiments %}
+		{% for trial in experiment.trials %}
+			{% if trial.name == data.access.defaults.trial %}
+				<option value={{trial.id}} selected>{{trial.name}}</option>
+			{% else  %}
+				<option value={{trial.id}}>{{trial.name}}</option>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}
+</select><br>
+	<input type="submit" value='Submit'>
+	</form>
+	<p>Click 'Submit' button to view trial</p>
+
+{% endblock %}

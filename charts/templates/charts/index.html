@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Mars Farm Charts: Index</p>
+<h2>Match Criteria</h2>
+<ul>
+<li>Experiment</li>
+<li>Trial</li>
+<li>User View</li>
+<li>All available data</li>
+</ul>
+<h2>Chart Data Types</h2>
+<ul>
+<li>Admin</li>
+<li>Dashboard</li>
+<li>Environmental</li>
+<li>Agronomic</li>
+<li>Phenotype</li>
+<li>Special</li>
+<ul>
+<li>Multi-Variable</li>
+<li>DewPoint</li>
+</ul>
+</ul>
+<h2>Charts</h2>
+<ul>
+<li><a href={{url_for('chart_blueprint.test_chart')}}> Test Chart</a></li>
+<li><a href={{url_for('chart_blueprint.env')}}> Environment Chart</a></li>
+<ul>
+
+{% endblock %}

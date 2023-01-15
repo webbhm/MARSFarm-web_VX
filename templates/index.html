@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Mars Farm Test: Index</p>
+<h2>Test Pages</h2>
+<a href={{url_for('example_blueprint.show')}}>GBE Test Charts</a></br>
+<a href='charts'>Charts root</a></br>
+<a href='test'>Test root</a></br>
+<a href='adv'>Advanced root</a></br>
+<p>To Do:</p>
+<ul>
+<li>Create main menu for access to defined pages</li>
+<li>Create graphic menu (image buttons?)</li>
+<li>Create multi-select/main chart page</li>
+<li>Create advanced chart options</li>
+<li>Create selection page (School(Box?)/Experiment/Trial</li>
+<li>Create login page/navigation tree</li>
+<li>Add oAuth to login</li>
+</ul>
+<p>Done</p>
+<ul>
+<li>Rewrite in Nginx to properly forward requests to proxied servers (base index is still a problem)
+<li>Multiple Blueprints working with templates
+</ul>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>Scatter Plot with Environmental Variable</p>
+    <form>
+      <select name="attrib" action="/scatter" method="post">
+        <option value="height">Height</option>
+        <option value="width">Width</option>
+        <option value="depth">Depth</option>
+        <option value="edible_mass">Edible Mass</option>
+        <option value="Leaves">Number Leaves</option>
+      </select>
+      <select name="env_var" action="/scatter" method="post">
+        <option value="temp">Temperature</option>
+        <option value="humidity">Humidity</option>
+        <option value="Irrigation">Irrigation</option>
+     
+      </select>
+      <input value="Submit" type="submit"> </form>
+    <h1>{{data.title}}</h1>
+    <div id="chart" class="chart" ”=""></div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+  var graphs = {{graphJSON | safe}};
+  Plotly.plot('chart',graphs,{});
+</script>
+{% endblock %}

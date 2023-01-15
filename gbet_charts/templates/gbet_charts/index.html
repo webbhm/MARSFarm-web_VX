@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Mars Farm GBE_T Charts: Index</p>
+<p>Legacy charts from the GBE_T box</br>
+These are charts for an individual trial, and will be used as templates for the new data format.
+he new charts will be in the "Trial" section</p>
+<ul>
+<li><a href={{url_for('gbet_charts_blueprint.dashboard')}}> Dashboard</a></li>
+<li><a href={{url_for('gbet_charts_blueprint.env')}}> Environment Chart</a></li>
+<li><a href={{url_for('gbet_charts_blueprint.dew_point')}}> DewPoint Chart</a></li>
+<li><a href={{url_for('gbet_charts_blueprint.plant_attr')}}> Plant Attribute by Week</a></li></br>
+<li><a href={{url_for('gbet_charts_blueprint.plant_image')}}>Latest Image</li>
+<li><a href={{url_for('gbet_charts_blueprint.plant_gif')}}>GIF</li>
+<ul>
+
+{% endblock %}

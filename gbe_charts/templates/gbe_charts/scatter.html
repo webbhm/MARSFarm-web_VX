@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>Select Attributes to display</p>
+    <form>
+      <select name="attribute1" action="/scatter" method="post">
+        <option value="height">Height</option>
+        <option value="width">Width</option>
+        <option value="depth">Depth</option>
+        <option value="Leaves">Number Leaves</option>
+
+      </select>
+      <select name="attribute2" action="/scatter" method="post">
+        <option value="height">Height</option>
+        <option value="width">Width</option>
+        <option value="depth">Depth</option>
+        <option value="edible_mass">Edible Mass</option>
+        <option value="inedible_mass">Inedible Mass</option>
+      </select>
+      <input value="Submit" type="submit"> </form>
+    <h1>{{data.title}}</h1>
+    <div id="chart" class="chart" ”=""></div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+  var graphs = {{graphJSON | safe}};
+  Plotly.plot('chart',graphs,{});
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>Select Attribute and Trial (or All data) for selection</p>
+    <form>
+      <select name="attribute" action="/box" method="post">
+        <option value="Temperature">Temperature</option>
+        <option value="Humidity">Humidity</option>
+        <option value="Pressure">Barometric Pressure</option>
+        <option value="CO2">CO2</option>
+      </select>
+      <select name="trial" action="/box" method="post">
+        <option value="ALL">All Data</option>
+        <option value="GBE_T1">Trial 1</option>
+        <option value="Trial_2">Trial 2</option>
+        <option value="Trial_3">Trial 3</option>
+        <option value="Trial_4">Trial 4</option>
+        <option value="Trial_5">Trial 5</option>
+        <option value="GBE_T1">GBE_T5</option>
+      </select>
+      <input value="Submit" type="submit">
+   </form>
+    <h1>{{data.title}}</h1>
+    <p>School: {{data.farm}}</br>
+       Trial: {{data.trial}}</br>
+       Start Date: {{data.start_date}}</br>
+       End Date: {{data.end_date}}</br>
+    <div id="chart" class="chart" ”=""></div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+  var graphs = {{graphJSON | safe}};
+  Plotly.plot('chart',graphs,{});
+</script>
+{% endblock %}

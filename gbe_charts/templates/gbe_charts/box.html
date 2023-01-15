@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>Select Attribute and Week to display</p>
+    <form>
+      <select name="attribute" action="/box" method="post">
+        <option value="height">Height</option>
+        <option value="width">Width</option>
+        <option value="depth">Depth</option>
+        <option value="edible_mass">Edible Mass</option>
+      </select>
+      <select name="week" action="/box" method="post">
+        <option value="2">Week 2</option>
+        <option value="3">Week 3</option>
+        <option value="4">Week 4</option>
+      </select>
+      <input value="Submit" type="submit"> </form>
+    <h1>{{data.title}}</h1>
+    <div id="chart" class="chart" ”=""></div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+  var graphs = {{graphJSON | safe}};
+  Plotly.plot('chart',graphs,{});
+</script>
+{% endblock %}

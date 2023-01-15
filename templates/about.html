@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+<p>Mars Farm: /about</p>
+
+<h2>Welcome to MARSFarm!</h2>
+</br></br>
+
+<img src={{url_for('static', filename='images/MarsFarmLogo.png')}} width="75" height="75" alt="MARSFarm">
+</br>
+
+<a href="https://www.marsfarm.com" target='_blank'>MARSFarm Inc</a>
+</p>
+<h2>Purpose and Direction</h2>
+<p>
+This website is as test-bed for future development, though using some actual live data.  
+GBE represents the legacy GBE data (from 2019 and 2020) and is used for "Experiment" level charting.  
+This is most useful for comparisons of all boxes across an experiment.
+GBET comes from my GBE test box and has live data and images (though unfortunately little phenotype data).
+This data is used to demonstrate "Trial" level charting and reporting.  
+This is where a student would typically monitor the current conditions of their box.
+</p>
+<p>
+Some menus and items are stubbed for for the moment ("Trial" and "Experiment" are empty till the new data format is defined.
+Functionality will be added as it is developed.
+</p>
+<h2>Software</h2>
+<p>
+This app is written in Python, using the Flask and Blueprint libraries.</br>
+Gunicorn is used as a secure server, and placed behind a Nginx reverse proxy server (using Certbot).</br>
+Data is supplied by two sources:
+<ul>
+<li>Data custom scraped for the 2019 and 2020 GBE spreadsheets.</li>
+<li>Data being fed from my highly hacked and customized GBE box.</li> 
+</ul>
+The data is stored in several MongoDB tables (using CloudAtlas), from which it queried for this website.</br>
+</p>
+</div>
+
+{% endblock %}

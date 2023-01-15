@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Mars Farm URL Testing:</h1
+<p>file: test/templates/test/url</p>
+<p>url_for</p>
+<p>In this Blueprint</br>
+{{url_for('.show')}}</br>
+In test_chart_blueprint
+{{url_for('test_chart_blueprint.show', filename='chart')}}
+</p>
+<h2>Test Links</h2>
+<a href={{url_for('example_blueprint.show', filename='index2')}}>Home</a></br>
+
+{% endblock %}

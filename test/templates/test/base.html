@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  </head>
+  <body>{% if data.title %}
+    <title>{{data.title}}</title>
+    {% else %}
+    <title>Home Page - MarsFarm</title>
+    {% endif %}
+    <div>MarsFarm-t: <a href={{url_for('example_blueprint.show', filename='index2')}}>Home</a></br></div>
+    <hr> {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <hr> {% block content %}{% endblock %}
+  </body>
+</html>

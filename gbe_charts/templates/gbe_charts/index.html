@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Mars Farm GBE Charts: Index</p>
+<p>These charts demonstrate group ("Experiment") level aggregation using the legacy data format</br>
+The new data format, group level charts (Experiment based) will be based on these.  
+The new charts will be found in the "Exp" directory</p>
+<p>Legacy Growing Beyond Earth data</p>
+    <p>Fairchild Gardens runs the Growing Beyond Earth Project (GBE), where schools grow plants to determine the best candidates for the International Space Station.
+This site is an extraction of the school's spreadsheet data into MongoDB and Ploty, and then applying various queries and charting techniques.
+Data here is from the 2020 school year.</br>
+The code and results here are my personal experimentation and has no formal relationship to Fairchild Gardens or NASA.
+The purpose is to research coding and display techniques, and does not focus on scientific results.</p>
+<ul>
+    <li><a href={{url_for('gbe_charts_blueprint.env')}}>Attribute for all schools</a></li></br>
+    <li><a href={{url_for('gbe_charts_blueprint.growth_rate')}}> Growth Rate</a></li>
+    <li><a href={{url_for('gbe_charts_blueprint.germination')}}>Germination Rate</a></li>
+    <li><a href={{url_for('gbe_charts_blueprint.score_card')}}>Data Entry Score Card</a></li> 
+    <li><a href={{url_for('gbe_charts_blueprint.health')}}>Health by Plot and School</a></li> 
+    <li><a href={{url_for('gbe_charts_blueprint.deaths_week')}}>Deaths per Week</a></li> 
+</ul>
+<p>Group Charts of diffrent styles</p>
+<ul>
+    <li><a href={{url_for('gbe_charts_blueprint.histogram')}}>Histogram of Environmental Variables</a></li>
+    <li><a href={{url_for('gbe_charts_blueprint.scatter')}}>Two Variable Scatter Plot</a></li>
+    <li><a href={{url_for('gbe_charts_blueprint.env_bubble')}}>Bubble Scatter - Variable and Environment</a></li>
+    <li><a href={{url_for('gbe_charts_blueprint.box')}}>Box Chart of Plant Variabale</a></li>
+
+
+</ul>
+
+{% endblock %}

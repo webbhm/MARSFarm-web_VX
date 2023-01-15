@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>Phenotype Data Entry</h1>
+<p>School: {{data.farm}}</br>
+Box: {{data.field}}</br>
+Experiment: {{data.experiment}}</br>
+Trial: {{data.trial}}</br></p>
+
+<div>
+<table>
+  <tr>
+    <th>Plant Id</th>
+    <th>Height</th>
+    <th>Width</th>
+    <th>Depth</th>
+    {% if data.week == 4 %}
+	<th>Mass</th>
+    {% endif %}
+    <th>Health</th>
+  </tr>
+{% for plant in data.plants -%}
+  <tr>
+    <td>{{plant.id}}</td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    {% if data.week == 4 %}
+      <td> </td>
+    {% endif %}
+    <td> </td>
+  </tr>
+{%- endfor %}
+</table>
+</div>
+
+{% endblock %}

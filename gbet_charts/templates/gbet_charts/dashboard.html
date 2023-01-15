@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>Dashboard</h1>
+<p>School: {{data.farm}}</br>
+Box: {{data.field}}</br>
+Experiment: {{data.experiment}}</br>
+Trial: {{data.trial}}</br></p>
+
+<div class="grid-container">
+  <div class="grid-item">Temperature</br>{{data.temp}} C</div>
+  <div class="grid-item">Humidity</br>{{data.humidity}} %</div>
+  <div class="grid-item">Co2</br>{{data.co2}} ppm</div>  
+  <div class="grid-item">Lights (On/Off)</br>{{data.light}}</div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item">Latest Image</br>{{data.image_name}}: {{data.start_date}}</br><img id="picture" src="data:image/jpeg;base64,{{data.image}}" alt="{{data.alt}}" width="100" height="100"></div>  
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<p>The box captures an image every hour and pushes it up to the database. 
+It is stored in a permanent record associated with the box, that is regularly updated.
+This page retreives the record and displays it.</p>
+    <h1>{{data.title}}</h1>
+    <p>School: {{data.farm}}</br>
+       Box: {{data.field}}</br>
+       Date: {{data.start_date_str}}</br>
+       Image:{{data.image_type}}</br>
+    <img id="picture" src="data:image/jpeg;base64,{{data.image}}" alt="{{data.alt}}">
+{% endblock %}
