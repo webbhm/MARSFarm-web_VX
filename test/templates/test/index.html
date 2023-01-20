@@ -4,6 +4,11 @@
 <p>test/templates/test/index+base</h1>
 <p>Place for testing web functions</p>
 <a href={{url_for('test_blueprint.show', filename='url')}}>URL Testing</a></br>
-<a href={{url_for('test_blueprint.dynamic', filename='url')}}>Dynamic Drop Down</a></br>
+<a href={{url_for('test_blueprint.dynamic')}}>Dynamic Drop Down</a></br>
 <a href={{url_for('test_blueprint.dynamic', filename='nav_side_icon')}}>New base prototype menu</a></br>
+<a href="test/ScrollTest">Scrolling Menu (for images)</a></br>
+<a href="test/topnav">topnav full html</a></br>
+<p>Works locally but not remote</p>
+<a href="test/topnav2">topnav embedded with style</a>
+<p>using limited css</p>
 {% endblock %}

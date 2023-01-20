@@ -1,5 +1,5 @@
 # Dev version of the Flask app
-from flask import Flask
+from flask import Flask, session, request
 from example_blueprint import example_blueprint
 from admin.admin_blueprint import admin_blueprint
 from trial_charts.trial_charts_blueprint import trial_charts_blueprint
@@ -12,6 +12,10 @@ from data_input.data_input_blueprint import data_input_blueprint
 print("Test2 Blueprint - Dev")
 
 app = Flask(__name__)
+# set up session
+app.secret_key = 'BAD_SECRET_KEY'
+
+# register blueprints
 app.register_blueprint(example_blueprint)
 app.register_blueprint(admin_blueprint)
 app.register_blueprint(trial_charts_blueprint)
@@ -30,6 +34,10 @@ app.register_blueprint(data_input_blueprint)
 #print("test Path", test_blueprint.root_path)
 #print("adv Path", adv_blueprint.root_path)
 #print("admin Path", admin_blueprint.root_path)
-# debug must be False to work with Gunicorn in production
-app.run(host='0.0.0.0', port=5000, debug=True)
-app.config['EXPLAIN_TEMPLATE_LOADING'] = True
+
+
+if __name__=="__main__":
+    # debug must be False to work with Gunicorn in production
+    # this runs if direct (Thonny) but not under Gunicorn
+    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.config['EXPLAIN_TEMPLATE_LOADING'] = True

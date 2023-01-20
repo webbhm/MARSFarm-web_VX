@@ -1,0 +1,14 @@
+{# Index for image functions #}
+{% extends "base.html" %}
+{% block content %}
+
+<p>Mars Farm Image /image/index</p>
+<h2>Images for Trial</h2>
+<ul>
+<li><a href={{url_for('image_blueprint.plant_image')}}>Latest Image</a></li>
+<li><a href={{url_for('image_blueprint.plant_gif')}}>GIF</a></li>
+<li><a href={{url_for('image_blueprint.gallery')}}>Gallery</a></li>
+</ul>
+
+
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="text-align:center">Slideshow Gallery</h2>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src={{url_for('static', filename='pics/2023-01-18_1200.jpg')}} style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src={{url_for('static', filename='pics/2023-01-18_1300.jpg')}} style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src={{url_for('static', filename='pics/2023-01-18_1400.jpg')}} style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src={{url_for('static', filename='pics/2023-01-18_1500.jpg')}} style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src={{url_for('static', filename='pics/2023-01-18_1600.jpg')}} style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src={{url_for('static', filename='pics/2023-01-18_1700.jpg')}} style="width:100%">
+  </div>
+     
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row_gallery">
+    <div class="column_gallery">
+      <img class="demo cursor" src={{url_for('static', filename='pics/2023-01-18_1200.jpg')}} style="width:100%" onclick="currentSlide(1)" alt="Plant 1">
+    </div>
+    <div class="column_gallery">
+      <img class="demo cursor" src={{url_for('static', filename='pics/2023-01-18_1300.jpg')}} style="width:100%" onclick="currentSlide(2)" alt="Plant 2">
+    </div>
+    <div class="column_gallery">
+      <img class="demo cursor" src={{url_for('static', filename='pics/2023-01-18_1400.jpg')}} style="width:100%" onclick="currentSlide(3)" alt="Plant 3">
+    </div>
+    <div class="column_gallery">
+      <img class="demo cursor" src={{url_for('static', filename='pics/2023-01-18_1500.jpg')}} style="width:100%" onclick="currentSlide(4)" alt="Plant 4">
+    </div>
+    <div class="column_gallery">
+      <img class="demo cursor" src={{url_for('static', filename='pics/2023-01-18_1600.jpg')}} style="width:100%" onclick="currentSlide(5)" alt="Plant 5">
+    </div>    
+    <div class="column_gallery">
+      <img class="demo cursor" src={{url_for('static', filename='pics/2023-01-18_1700.jpg')}} style="width:100%" onclick="currentSlide(5)" alt="Plant 6">
+    </div>    
+ </div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+{% endblock %}

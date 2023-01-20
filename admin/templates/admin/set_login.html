@@ -1,0 +1,13 @@
+{# Index for administrative functions #}
+{% extends "base.html" %}
+{% block content %}
+
+<p>Mars Farm Admin /admin/set_login</p>
+<h2>Admin</h2>
+	{% if session['email'] %}
+                <h1>Welcome {{ session['email'] }}!</h1>
+            {% else %}
+                <h1>Welcome! Please enter your email <a href="{{url_for('admin_blueprint.set_login')}}">here.</a></h1>
+            {% endif %}
+
+{% endblock %}

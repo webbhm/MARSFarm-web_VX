@@ -1,0 +1,9 @@
+<div class="wrapper">   
+    <div id="slider4" class="text-center">
+      {% for image in data.images %}
+        <div class="slide-img">
+            <p><img src={{url_for('static', filename=image)}} style="width:100%"></p>
+        </div>
+      {% endfor %}
+    </div>
+</div>

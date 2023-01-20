@@ -1,18 +1,23 @@
+{# Index for administrative functions #}
 {% extends "base.html" %}
 {% block content %}
 
 <p>Mars Farm Admin /admin/index</p>
 <h2>Admin</h2>
 <ul>
-<li>Login</li>
+<li><a href={{url_for('admin_blueprint.set_login')}}>Login</a></li>
 <li>Create Experiment</li>
+<li>Use Experiment - select active Experiment by organization</li>
 <li>Create Trial</li>
+{# Give user ability to see boxes/plots outside of their organization #}
 <li>Create User View</li>
-</ul>
-<h2>Data Entry</h2>
+<li>Search</li>
 <ul>
-<li>Add Plants</li>
-<li>Phenotype Data</li>
+<li>Select Trial by Exp-Creator, Experiment, Org, Trial</li>
+<li>Select Trial by Exp-Creator, Org, Box, Trial</li>
+<li>Select Trial by Org, Box, Trial</li>
 </ul>
+</ul>
+
 
 {% endblock %}

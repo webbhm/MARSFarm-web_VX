@@ -354,6 +354,39 @@ def scatter_chart(data, fmt):
 
     return fig
 
+def design_chart_data(title, attribute, chart_type, x_axis, y_axis, group, error_plus, error_minus, template):
+    # Design your own chart using school/attibute data
+    data = growth_rate_data(attribute)
+    #print(data)
+    if attribute in [TEMPERATURE, HUMIDITY]:
+        ht = {WEEK:True,
+          attribute:True,
+          MIN:True,
+          MAX:True}
+    else:
+        ht = {
+          GBE_ID:True,
+          NAME:True,
+          WEEK:True,
+          attribute:True,
+          MIN:True,
+          MAX:True}
+        
+    fmt = {TITLE:title,
+            COLOR: group,
+            X_COL:x_axis,
+            Y_COL:y_axis,
+            HOVER_DATA:ht,
+            ERROR_PLUS:error_plus,
+            ERROR_MINUS:error_minus,
+            TEMPLATE:template}
+    if chart_type == "line":
+        return line_chart(data, fmt)
+    elif chart_type == "bar":
+        return bar_chart(data, fmt)
+    elif chart_type == "scatter":
+        return scatter_chart(data, fmt)
+    #return None
 
 
 def test_test():

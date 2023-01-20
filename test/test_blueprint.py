@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, abort
 from jinja2 import TemplateNotFound
 
+from test.functions.Image_Query import images
+
 test_blueprint = Blueprint('test_blueprint', __name__, template_folder='templates')
 
 # Page functions
@@ -23,7 +25,7 @@ def index():
 
 # Now working
 @test_blueprint.route('/test/', defaults={'page': 'index'})
-@test_blueprint.route('/test/url', defaults={'page': 'url'})
+#@test_blueprint.route('/test/url', defaults={'page': 'url'})
 @test_blueprint.route('/test/<page>')
 def show(page):
     title = "MarsFarm"
@@ -49,7 +51,6 @@ def dynamic():
         print("Except", e)
         abort(404)
 
-    
 @test_blueprint.route('/test/test_chart', methods=['GET', 'POST'])
 def test_chart():
     try:
@@ -63,3 +64,30 @@ def test_chart():
     except Exception as e:
         print("Except test_chart", e)
         abort(404)
+        
+@test_blueprint.route('/test/ScrollTest3', methods=['GET', 'POST'])
+def scroll_test3():
+    # gallery of all trial images
+    trial = "GBE_T_3"    
+    farm = "OpenAgBloom"
+    field = "GBE_D_3"
+    experiment = "E_3"
+    title = "Gallery of Trial Images"
+    description = "All images for a Trial"
+    
+    page_data = {"title":title, "description":description,
+        "farm":farm,
+        "field":field,
+        "experiment":experiment,
+        "trial":trial,
+        "images":images,
+        
+        }        
+
+    print("Images", len(images))
+    try:
+        print("Render Scroll Test 3")
+        return render_template('test/ScrollTest3.html', data=page_data)
+    except Exception as e:
+        data = {"msg":"Failure getting Scroll Test", "err":e}
+        return render_template('error.html', data=data)

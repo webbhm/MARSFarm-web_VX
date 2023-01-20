@@ -9,9 +9,14 @@ Experiment: {{data.experiment}}</br>
 Trial: {{data.trial}}</br></p>
 
 <div>
-<table>
-  <tr>
+<form>
+{% include 'week.html' %}
+<table class=".table" font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;>
+  <tr class=".table_row">
     <th>Plant Id</th>
+    <th>Name</th>
     <th>Height</th>
     <th>Width</th>
     <th>Depth</th>
@@ -22,17 +27,20 @@ Trial: {{data.trial}}</br></p>
   </tr>
 {% for plant in data.plants -%}
   <tr>
-    <td>{{plant.id}}</td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <td class=".table_cell">{{plant.GBE_ID}}</td>
+    <td class=".table_cell">{{plant.name}}</td>
+    <td class=".table_cell"><input type="text" id="height" name="height" min="0" max="250"></td>
+    <td class=".table_cell"><input type="text" id="width" name="width" min="0" max="250"></td>
+    <td class=".table_cell"><input type="text" id="depth" name="depth" min="0" max="250"></td>
     {% if data.week == 4 %}
-      <td> </td>
+      <td class=".table_cell"><input type="text" id="mass" name="mass" min="0" max="250"></td>
     {% endif %}
-    <td> </td>
+    <td class=".table_cell">{% include 'health.html' %}</td>
   </tr>
 {%- endfor %}
 </table>
+<input type="submit" value="Submit">
+</form>
 </div>
 
 {% endblock %}

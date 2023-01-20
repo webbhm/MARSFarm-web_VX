@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+{# Set up plants, pick seeds and randomize location    #}
+
+<h1>Phenotype Data Entry</h1>
+<p>School: {{data.farm}}</br>
+Box: {{data.field}}</br>
+Experiment: {{data.experiment}}</br>
+Trial: {{data.trial}}</br></p>
+
+<div>
+<form>
+<table class=".table" font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;>
+  <tr class=".table_row">
+    <th>Plant Id</th>
+    <th>Position</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Seeds Planted</th>
+  </tr>
+{% for plant in data.plants -%}
+  <tr>
+    <td class=".table_cell">{{plant.GBE_ID}}</td>
+    <td class=".table_cell">{{plant.seq}}</td>
+    <td class=".table_cell">{{plant.name}}</td>
+    <td class=".table_cell">{{plant.type}}</td>
+    <td class=".table_cell"><input type="text" id="seed_cnt" name="seed_cnt" min="0" max="10"></td>
+
+  </tr>
+{%- endfor %}
+</table>
+{# <input type="submit" value="Randomize"></br> #}
+<input type="submit" value="Submit">
+</form>
+</div>
+
+{% endblock %}

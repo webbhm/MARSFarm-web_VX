@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{data.title}}</h1>
+    <p>{{data.description}}</p>
+    <h3>Select Data (This uses the attribute for School chart data)</h3>
+
+    <form>
+      Attribute: <select name="attribute" action="/build_chart" method="post">
+        <option value="height">Height</option>
+        <option value="width">Width</option>
+        <option value="edible_mass">Edible Mass</option>
+        <option value="temp">Temperature</option>
+        <option value="humidity">Humidity</option>
+      </select>
+      <h3>Select Chart Type</h3>
+      <p>Type: 
+      <select name="chart_type" action="/build_chart" method="post">
+        <option value="bar">Bar</option>
+        <option value="line">Line</option>
+        <option value="scatter">Scatter</option>
+      </select></p>
+      <h3>Select Chart Parts</h3>
+      X Axis: <select name="x_axis" action="/build_chart" method="post">
+        <option value="GBE_Id">GBE_Id</option>
+        <option value="week">Week</option>
+        <option value="attribute">Attribute</option>
+      </select></br>
+      Y Axis: <select name="y_axis" action="/build_chart" method="post">
+        <option value="attribute">Attribute</option>
+        <option value="week">Week</option>
+        <option value="GBE_Id">GBE_Id</option>
+      </select></br>
+      Group By: <select name="group" action="/build_chart" method="post">
+        <option value="week">Week</option>
+        <option value="attribute">Attribute</option>
+        <option value="GBE_Id">GBE_Id</option>
+        <option value="None">None</option>
+      </select></br>
+      Error Plus: <select name="error" action="/build_chart" method="post">
+        <option value="None">None</option>
+        <option value="error_plus">Error_Plus</option>
+        <option value="error_minus">Error Minus</option>
+        <option value="min">Min</option>
+        <option value="max">Max</option>
+      </select></br>
+      Error Minus: <select name="error_minus" action="/build_chart" method="post">
+        <option value="None">None</option>
+        <option value="error_minus">Error Minus</option>
+        <option value="error_plus">Error_Plus</option>
+        <option value="min">Min</option>
+        <option value="max">Max</option>
+      </select></br>
+      Template: <select name="template" action="/build_chart" method="post">
+        <option value="plotly_dark">Dark</option>
+        <option value="plotly">Plotly</option>
+        <option value="plotly_white">Plotly White</option>
+        <option value="ggplot2">GG Plot 2</option>
+        <option value="seaborn">Seaborn</option>
+        <option value="simple_white">Simple White</option>
+        <option value="None">None</option>
+      </select></br>
+      <input value="Submit" type="submit">
+    </form>
+    <h3>Chart</h3>
+    <div id="chart" class="chart" ”=""></div>    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+  var graphs = {{graphJSON | safe}};
+  Plotly.plot('chart',graphs,{});
+</script>
+{% endblock %}

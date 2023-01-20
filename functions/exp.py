@@ -1,0 +1,1 @@
+experiment = {"experiments":[{"id":"Exp_1", "name":"Test Experiment 1", "owner":"OpenAgBloom"}, {"id":"Exp_2", "name":"Test Experiment 2", "owner":"MARSFarm"}]}
